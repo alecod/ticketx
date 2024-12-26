@@ -3,6 +3,7 @@ import { useQuery } from "convex/react"
 import {api} from '@/convex/_generated/api'
 import Spinner from "./Spinner"
 import { CalendarDays, Ticket } from "lucide-react"
+import EventCard from "./EventCard"
 
 function EventList() {
     const events = useQuery(api.events.get)
@@ -20,7 +21,7 @@ function EventList() {
 
     const upcomingEvents = events.filter((event) => event.eventDate > Date.now()).sort((a, b) => a.eventDate - b.eventDate)
 
-    const pastEvents = events.filter((event) => event.eventDate <= Date.now()).sort((a, b) => a.eventDate - b.eventDate)
+    // const pastEvents = events.filter((event) => event.eventDate <= Date.now()).sort((a, b) => a.eventDate - b.eventDate)
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -60,7 +61,7 @@ function EventList() {
     )}
 
     {/* Past Events Section */}
-    {pastEvents.length > 0 && (
+    {/* {pastEvents.length > 0 && (
       <>
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Past Events</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,7 +70,7 @@ function EventList() {
           ))}
         </div>
       </>
-    )}
+    )} */}
   </div>
   )
 }
