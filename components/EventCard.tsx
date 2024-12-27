@@ -8,6 +8,7 @@ import { CalendarDays, Check, CircleArrowRight, LoaderCircle, MapPin, PencilIcon
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import PurchaseTicket from "./PurchaseTicket";
 
 function EventCard({ eventId }: { eventId: Id<"events"> }) {
   const { user } = useUser();
@@ -123,8 +124,8 @@ function EventCard({ eventId }: { eventId: Id<"events"> }) {
       return (
         <div className="mt-4">
           {queuePosition.status === "offered" && (
-            // <PurchaseTicket eventId={eventId} />
-            <></>
+            <PurchaseTicket eventId={eventId} />
+        
           )}
           {renderQueuePosition()}
           {queuePosition.status === "expired" && (
