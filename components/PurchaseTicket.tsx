@@ -94,7 +94,7 @@ export default function PurchaseTicket({ eventId }: { eventId: Id<"events"> }) {
 
             <div className="text-sm text-gray-600 leading-relaxed">
               A ticket has been reserved for you. Complete your purchase before
-              the timer expires to secure your spot at this event.
+              the timer expires too secure your spot at this event.
             </div>
           </div>
         </div>
