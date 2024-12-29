@@ -41,3 +41,23 @@ export const getQueuePosition = query({
       };
     },
   });
+
+
+  export const releaseTicket = mutation({
+    args: {
+      waitingListId: v.id("waitingList"),
+      eventId: v.id("events"),
+    },
+    handler: async (ctx, { eventId, waitingListId}) => {
+      const entry = await ctx.db.get(waitingListId)
+
+      if(!entry || entry.status !== WAITING_LIST_STATUS.OFFERED) {
+        throw new Error("Invalid waiting list entry")
+      }
+
+      await ctx.db.patch(waitingListId, {
+        status: WAITING_LIST_STATUS.EXPIRED
+      })
+
+    }
+  })
