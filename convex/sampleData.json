@@ -1,93 +1,92 @@
 [
   {
-    "name": "Taylor Swift | The Eras Tour",
-    "description": "Experience Taylor Swift's record-breaking Eras Tour live!",
-    "price": 499.99,
-    "totalTickets": 100,
-    "location": "MetLife Stadium, New Jersey", 
-    "eventDate": 1723845600000,
-    "userId": "user_2bFMHkGxZPWVVyJ5QEJQxfsCkxB"
+      "nome": "Taylor Swift | The Eras Tour",
+      "descricao": "Viva a experiência da turnê recordista de Taylor Swift ao vivo!",
+      "preco": 499.99,
+      "totalIngressos": 100,
+      "local": "MetLife Stadium, Nova Jersey", 
+      "dataEvento": 1723845600000,
+      "idUsuario": "user_2bFMHkGxZPWVVyJ5QEJQxfsCkxB"
   },
   {
-    "name": "NBA Finals 2024 - Game 1",
-    "description": "Witness the opening game of the NBA Finals!",
-    "price": 899.99,
-    "totalTickets": 50,
-    "location": "Madison Square Garden, New York",
-    "eventDate": 1717891200000,
-    "userId": "user_2bFMHkGxZPWVVyJ5QEJQxfsCkxB"
+      "nome": "NBA Finals 2024 - Jogo 1",
+      "descricao": "Assista ao jogo de abertura das finais da NBA!",
+      "preco": 899.99,
+      "totalIngressos": 50,
+      "local": "Madison Square Garden, Nova York",
+      "dataEvento": 1717891200000,
+      "idUsuario": "user_2bFMHkGxZPWVVyJ5QEJQxfsCkxB"
   },
   {
-    "name": "Hamilton - Broadway",
-    "description": "Don't miss the award-winning musical phenomenon!",
-    "price": 299.99,
-    "totalTickets": 75,
-    "location": "Richard Rodgers Theatre, New York",
-    "eventDate": 1721788200000,
-    "userId": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD"
+      "nome": "Hamilton - Broadway",
+      "descricao": "Não perca o fenômeno musical premiado!",
+      "preco": 299.99,
+      "totalIngressos": 75,
+      "local": "Richard Rodgers Theatre, Nova York",
+      "dataEvento": 1721788200000,
+      "idUsuario": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD"
   },
   {
-    "name": "Coldplay World Tour",
-    "description": "Join Coldplay for an unforgettable night of music!",
-    "price": 150.00,
-    "totalTickets": 200,
-    "location": "Wembley Stadium, London",
-    "eventDate": 1726012800000,
-    "userId": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD"
+      "nome": "Coldplay World Tour",
+      "descricao": "Junte-se ao Coldplay para uma noite inesquecível de música!",
+      "preco": 150.00,
+      "totalIngressos": 200,
+      "local": "Wembley Stadium, Londres",
+      "dataEvento": 1726012800000,
+      "idUsuario": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD"
   },
   {
-    "name": "Comic Con 2024",
-    "description": "The ultimate pop culture convention!",
-    "price": 85.00,
-    "totalTickets": 1000,
-    "location": "Javits Center, New York",
-    "eventDate": 1728172800000,
-    "userId": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD"
-  }
-  ,
-  {
-    "name": "Ed Sheeran Mathematics Tour",
-    "description": "An intimate evening with Ed Sheeran performing his greatest hits",
-    "price": 125.00,
-    "totalTickets": 150,
-    "location": "O2 Arena, London",
-    "eventDate": 1729382400000,
-    "userId": "user_2eRTLnPxYQWWbzM8THMTaisFnzE"
+      "nome": "Comic Con 2024",
+      "descricao": "A convenção definitiva de cultura pop!",
+      "preco": 85.00,
+      "totalIngressos": 1000,
+      "local": "Javits Center, Nova York",
+      "dataEvento": 1728172800000,
+      "idUsuario": "user_2dOPKmMyZRXXazL7SGLSzhsEmzD"
   },
   {
-    "name": "Premier League: Arsenal vs Manchester United",
-    "description": "A classic Premier League rivalry match at the Emirates",
-    "price": 199.99,
-    "totalTickets": 60,
-    "location": "Emirates Stadium, London",
-    "eventDate": 1722393600000,
-    "userId": "user_2fQUMpNzXSVVczN9UINUbjsGozF"
+      "nome": "Ed Sheeran Mathematics Tour",
+      "descricao": "Uma noite intimista com Ed Sheeran apresentando seus maiores sucessos",
+      "preco": 125.00,
+      "totalIngressos": 150,
+      "local": "O2 Arena, Londres",
+      "dataEvento": 1729382400000,
+      "idUsuario": "user_2eRTLnPxYQWWbzM8THMTaisFnzE"
   },
   {
-    "name": "Adele: Weekend with Adele",
-    "description": "Adele's spectacular Las Vegas residency show",
-    "price": 450.00,
-    "totalTickets": 80,
-    "location": "Caesars Palace, Las Vegas",
-    "eventDate": 1724985600000,
-    "userId": "user_2gPVNqOyYTWWdzO0VJOVcktHpzG"
+      "nome": "Premier League: Arsenal vs Manchester United",
+      "descricao": "Um clássico da Premier League no Emirates Stadium",
+      "preco": 199.99,
+      "totalIngressos": 60,
+      "local": "Emirates Stadium, Londres",
+      "dataEvento": 1722393600000,
+      "idUsuario": "user_2fQUMpNzXSVVczN9UINUbjsGozF"
   },
   {
-    "name": "Wimbledon 2024 - Men's Final",
-    "description": "The culmination of the world's most prestigious tennis tournament",
-    "price": 750.00,
-    "totalTickets": 40,
-    "location": "Centre Court, All England Club, London",
-    "eventDate": 1720578600000,
-    "userId": "user_2hQWOrPzZUXXezP1WKPWdluIqzH"
+      "nome": "Adele: Weekend with Adele",
+      "descricao": "O espetacular show de residência de Adele em Las Vegas",
+      "preco": 450.00,
+      "totalIngressos": 80,
+      "local": "Caesars Palace, Las Vegas",
+      "dataEvento": 1724985600000,
+      "idUsuario": "user_2gPVNqOyYTWWdzO0VJOVcktHpzG"
   },
   {
-    "name": "Harry Potter and the Cursed Child",
-    "description": "The eighth story in the Harry Potter series comes to life on stage",
-    "price": 175.00,
-    "totalTickets": 100,
-    "location": "Palace Theatre, London",
-    "eventDate": 1727222400000,
-    "userId": "user_2iRXPsQAaVYYfAQ2XLQXemvJrzI"
+      "nome": "Wimbledon 2024 - Final Masculina",
+      "descricao": "A culminação do torneio de tênis mais prestigiado do mundo",
+      "preco": 750.00,
+      "totalIngressos": 40,
+      "local": "Centre Court, All England Club, Londres",
+      "dataEvento": 1720578600000,
+      "idUsuario": "user_2hQWOrPzZUXXezP1WKPWdluIqzH"
+  },
+  {
+      "nome": "Harry Potter and the Cursed Child",
+      "descricao": "A oitava história da série Harry Potter ganha vida no palco",
+      "preco": 175.00,
+      "totalIngressos": 100,
+      "local": "Palace Theatre, Londres",
+      "dataEvento": 1727222400000,
+      "idUsuario": "user_2iRXPsQAaVYYfAQ2XLQXemvJrzI"
   }
 ]

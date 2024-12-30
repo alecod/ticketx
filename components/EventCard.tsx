@@ -1,38 +1,31 @@
 "use client";
-
 import { api } from "@/convex/_generated/api";
-import { useQuery } from "convex/react";
 import { Id } from "@/convex/_generated/dataModel";
-import {
-  CalendarDays,
-  MapPin,
-  Ticket,
-  Check,
-  CircleArrowRight,
-  LoaderCircle,
-  XCircle,
-  PencilIcon,
-  StarIcon,
-} from "lucide-react";
-import { useUser } from "@clerk/nextjs";
-import PurchaseTicket from "./PurchaseTicket";
-import { useRouter } from "next/navigation";
 import { useStorageUrl } from "@/lib/utils";
+import { useUser } from "@clerk/nextjs";
+import { useQuery } from "convex/react";
+import { CalendarDays, Check, CircleArrowRight, LoaderCircle, MapPin, PencilIcon, StarIcon, Ticket, XCircle } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import React from "react";
+import PurchaseTicket from "./PurchaseTicket";
 
-export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
+function EventCard({ eventId }: { eventId: Id<"events"> }) {
   const { user } = useUser();
   const router = useRouter();
   const event = useQuery(api.events.getById, { eventId });
   const availability = useQuery(api.events.getEventAvailability, { eventId });
+
   const userTicket = useQuery(api.tickets.getUserTicketForEvent, {
     eventId,
     userId: user?.id ?? "",
   });
+
   const queuePosition = useQuery(api.waitingList.getQueuePosition, {
     eventId,
     userId: user?.id ?? "",
   });
+
   const imageUrl = useStorageUrl(event?.imageStorageId);
 
   if (!event || !availability) {
@@ -41,7 +34,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
 
   const isPastEvent = event.eventDate < Date.now();
 
-  const isEventOwner = user?.id === event?.userId;
+  const isEventOwner = user?.id === event.userId;
 
   const renderQueuePosition = () => {
     if (!queuePosition || queuePosition.status !== "waiting") return null;
@@ -51,7 +44,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
         <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
           <div className="flex items-center">
             <Ticket className="w-5 h-5 text-gray-400 mr-2" />
-            <span className="text-gray-600">Event is sold out</span>
+            <span className="text-gray-600">Evento esgotado</span>
           </div>
         </div>
       );
@@ -63,13 +56,13 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
           <div className="flex items-center">
             <CircleArrowRight className="w-5 h-5 text-amber-500 mr-2" />
             <span className="text-amber-700 font-medium">
-              You&apos;re next in line! (Queue position:{" "}
+              Você é o próximo da fila! (Posição na fila:{" "}
               {queuePosition.position})
             </span>
           </div>
           <div className="flex items-center">
             <LoaderCircle className="w-4 h-4 mr-1 animate-spin text-amber-500" />
-            <span className="text-amber-600 text-sm">Waiting for ticket</span>
+            <span className="text-amber-600 text-sm">Aguardando ingresso</span>
           </div>
         </div>
       );
@@ -79,7 +72,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
       <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-100">
         <div className="flex items-center">
           <LoaderCircle className="w-4 h-4 mr-2 animate-spin text-blue-500" />
-          <span className="text-blue-700">Queue position</span>
+          <span className="text-blue-700">Posição na fila</span>
         </div>
         <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">
           #{queuePosition.position}
@@ -102,7 +95,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
             className="w-full bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors duration-200 shadow-sm flex items-center justify-center gap-2"
           >
             <PencilIcon className="w-5 h-5" />
-            Edit Event
+            Editar Evento
           </button>
         </div>
       );
@@ -114,14 +107,14 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
           <div className="flex items-center">
             <Check className="w-5 h-5 text-green-600 mr-2" />
             <span className="text-green-700 font-medium">
-              You have a ticket!
+              Você tem um ingresso!
             </span>
           </div>
           <button
             onClick={() => router.push(`/tickets/${userTicket._id}`)}
             className="text-sm bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-full font-medium shadow-sm transition-colors duration-200 flex items-center gap-1"
           >
-            View your ticket
+            Ver seu ingresso
           </button>
         </div>
       );
@@ -132,13 +125,14 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
         <div className="mt-4">
           {queuePosition.status === "offered" && (
             <PurchaseTicket eventId={eventId} />
+        
           )}
           {renderQueuePosition()}
           {queuePosition.status === "expired" && (
             <div className="p-3 bg-red-50 rounded-lg border border-red-100">
               <span className="text-red-700 font-medium flex items-center">
                 <XCircle className="w-5 h-5 mr-2" />
-                Offer expired
+                Oferta expirada
               </span>
             </div>
           )}
@@ -148,7 +142,6 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
 
     return null;
   };
-
   return (
     <div
       onClick={() => router.push(`/event/${eventId}`)}
@@ -156,7 +149,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
         isPastEvent ? "opacity-75 hover:opacity-100" : ""
       }`}
     >
-      {/* Event Image */}
+      {/* Imagem do Evento */}
       {imageUrl && (
         <div className="relative w-full h-48">
           <Image
@@ -177,19 +170,19 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
               {isEventOwner && (
                 <span className="inline-flex items-center gap-1 bg-blue-600/90 text-white px-2 py-1 rounded-full text-xs font-medium">
                   <StarIcon className="w-3 h-3" />
-                  Your Event
+                  Seu Evento
                 </span>
               )}
               <h2 className="text-2xl font-bold text-gray-900">{event.name}</h2>
             </div>
             {isPastEvent && (
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mt-2">
-                Past Event
+                Evento Encerrado
               </span>
             )}
           </div>
 
-          {/* Price Tag */}
+          {/* Preço */}
           <div className="flex flex-col items-end gap-2 ml-4">
             <span
               className={`px-4 py-1.5 font-semibold rounded-full ${
@@ -202,7 +195,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
             </span>
             {availability.purchasedCount >= availability.totalTickets && (
               <span className="px-4 py-1.5 bg-red-50 text-red-700 font-semibold rounded-full text-sm">
-                Sold Out
+                Esgotado
               </span>
             )}
           </div>
@@ -218,7 +211,7 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
             <CalendarDays className="w-4 h-4 mr-2" />
             <span>
               {new Date(event.eventDate).toLocaleDateString()}{" "}
-              {isPastEvent && "(Ended)"}
+              {isPastEvent && "(Encerrado)"}
             </span>
           </div>
 
@@ -226,12 +219,12 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
             <Ticket className="w-4 h-4 mr-2" />
             <span>
               {availability.totalTickets - availability.purchasedCount} /{" "}
-              {availability.totalTickets} available
+              {availability.totalTickets} disponíveis
               {!isPastEvent && availability.activeOffers > 0 && (
                 <span className="text-amber-600 text-sm ml-2">
                   ({availability.activeOffers}{" "}
-                  {availability.activeOffers === 1 ? "person" : "people"} trying
-                  to buy)
+                  {availability.activeOffers === 1 ? "pessoa" : "pessoas"}{" "}
+                  tentando comprar)
                 </span>
               )}
             </span>
@@ -249,3 +242,5 @@ export default function EventCard({ eventId }: { eventId: Id<"events"> }) {
     </div>
   );
 }
+
+export default EventCard;
