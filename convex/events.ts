@@ -3,7 +3,6 @@ import { ConvexError, v } from "convex/values";
 import { DURATIONS, WAITING_LIST_STATUS, TICKET_STATUS } from "./constants";
 import {  internal } from "./_generated/api";
 import { processQueue } from "./waitingList";
-import { MINUTE, RateLimiter } from "@convex-dev/rate-limiter";
 
 export type Metrics = {
   soldTickets: number;
